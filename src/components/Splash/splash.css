@@ -1,0 +1,16 @@
+.splash-screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    background-position: center;
+    object-fit: cover;
+    z-index: 100;
+    overflow-x: hidden;
+    position: sticky;
+    background-color:#e6ffff;
+  }
+  
+  
