@@ -2,12 +2,11 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { useEffect } from 'react'
-import './activate.css';
+import '../auth/auth.css';
 import Error from '../auth/Error'
 import Spinner from '../auth/Spinner'
 import { activateUser } from '../../features/auth/authActions'
-import { resetCredentials } from '../../features/auth/authSlice';
-import { useLayoutEffect } from 'react';
+
 
 const Activate = () => {
   const { loading, activateState, error} = useSelector((state) => state.auth)
@@ -19,14 +18,14 @@ const Activate = () => {
 
 //   redirect activated user to login
   
-  
- useEffect(() => {
+  useEffect(() => {
    console.log('useeffect was called') 
-    if (activateState != null) {
+    if (activateState) {
 
       navigate('/login')
     }
-  }, [activateState]);
+  }, [activateState, navigate]);
+
 
   const submitForm = (data) => {
     dispatch(activateUser(data))
@@ -34,20 +33,15 @@ const Activate = () => {
 	
 return(
   <>
-  <div className="row text-info">
-	<div className="col">
-	<section> 
- 
- <p  class="hiddenanchor" id="toregister"></p>
-  <p class="hiddenanchor" id="tologin"></p>
-   <div id="wrapper">
-	   <div id="login" className="animate form">
+  
+   <div id="wrapper" className='fw-bold'>
+	   <div  className="animate form">
 		   <form  onSubmit={handleSubmit(submitForm)}>
 		  
 		 <br /> 
 			   <p className='text-dark text-center'>WELCOME TO SWIFT PAYMENT SERVICE PORTAL!!</p>
 			   <br />
-			   <p className='text-dark text-center'>Activate account account</p>
+			   <h4 className='text-dark text-center'>Activate account account</h4>
 			   {error && <Error>{error}</Error>}
 			   
 
@@ -79,14 +73,9 @@ return(
 		   </form>
 	   </div>
 	
-   </div>
-</section>
-	</div>
-	
-  </div>
   
-
-  </>);
+	</div>
+</>);
 };
 
 export default Activate;

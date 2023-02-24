@@ -2,7 +2,7 @@ import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { userLogin } from '../../features/auth/authActions'
-import { useEffect, useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 import './auth.css';
 import Error from './Error'
 import Spinner from './Spinner'
@@ -17,7 +17,7 @@ const Login = () => {
 
   const navigate = useNavigate()
 
-  // redirect authenticated user to dashboard
+ 
 // useLayoutEffect(() => {
 //   window.location.reload()
 // }, [])
@@ -35,11 +35,8 @@ const Login = () => {
 	
 return(
   <>
-  <div className="row text-info">
-	<div className="col">
-	<section> 
- 
- <p  class="hiddenanchor" id="toregister"></p>
+
+<p  class="hiddenanchor" id="toregister"></p>
   <p class="hiddenanchor" id="tologin"></p>
    <div id="wrapper">
 	   <div id="login" className="animate form">
@@ -71,12 +68,7 @@ return(
 				 required
 					/> 
 					</p>
-			   <p class="keeplogin"> 
-					<input type="checkbox" name="loginkeeping" id="loginkeeping"
-					 /> 
-					<label htmlFor="loginkeeping">Remember my preference</label>
-			    </p>
-			  
+			   
 			   <button type='submit' className='login-button' disabled={loading}>
 				{loading ? <Spinner /> : 'Sign Me In'}
 				</button>
@@ -87,16 +79,7 @@ return(
 	   </div>
 	<Register/>
    </div>
-</section>
-	</div>
-	<div className="col">
-		<img src="https://cdn3.iconfinder.com/data/icons/web-and-mobile-ui-smooth-line-3/48/122-512.png" alt="" className='cog' />
-		<div className="demo">
-		<i class="fa-solid fa-droplet text-light"></i>
-		</div>
-	</div>
-  </div>
-  
+ 
 
   </>);
 };

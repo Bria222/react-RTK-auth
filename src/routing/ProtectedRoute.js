@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux'
-import { NavLink, Outlet } from 'react-router-dom'
+import {  Outlet } from 'react-router-dom'
+import SplashScreen from '../components/Splash/Splash'
 
 const ProtectedRoute = () => {
   const { userInfo } = useSelector((state) => state.auth)
@@ -7,13 +8,7 @@ const ProtectedRoute = () => {
   // show unauthorized screen if no user is found in redux store
   if (!userInfo) {
     return (
-      <div className='unauthorized'>
-        <h1>Unauthorized :</h1>
-        <span>
-          <NavLink to='/'>Login</NavLink> to gain access
-          
-        </span>
-      </div>
+      <SplashScreen />
     )
   }
 

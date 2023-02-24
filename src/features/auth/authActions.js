@@ -56,9 +56,10 @@ export const activateUser = createAsyncThunk(
         { activation_code, username},
         config
       )
-console.log(data)
+   console.log(data)
       // store user's token in local storage
       localStorage.setItem('activateUser', data)
+    
 
       return data
     } catch (error) {
